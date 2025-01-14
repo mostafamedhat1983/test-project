@@ -6,7 +6,7 @@ services:
       - "./frontend:/usr/local/apache2/htdocs"
     ports:
       - 3000:80
-backend:
+  backend:
     container_name: backend
     build:
       context: ./
@@ -15,7 +15,7 @@ backend:
       - "./api:/var/www/html/"
     ports:
       - 5000:80
-database:
+  database:
     image: mysql:latest
     environment:
       MYSQL_DATABASE: todo_app
@@ -24,7 +24,7 @@ database:
       MYSQL_ALLOW_EMPTY_PASSWORD: 1
     volumes:
       - "./db:/docker-entrypoint-initdb.d"
-phpmyadmin:
+  phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
       - 8080:80
